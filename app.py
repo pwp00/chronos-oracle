@@ -259,19 +259,22 @@ def main():
             json_str_clean = json.dumps(final_json, indent=0).replace("{", "{\n").replace("}", "\n}")
 
             prompt = f"""
-            SYSTEM: You are CHRONOS, the Keeper of Time. 
-            Do not analyze names. Analyze only the moment of birth.
+            PERAN: Anda adalah CHRONOS, Auditor Jiwa Forensik. Tugas Anda adalah membedah psikospiritual subjek berdasarkan data koordinat waktu murni.
             
-            DATA:
+            DATA SUBJEK:
             {json_str_clean}
 
-            TASK:
-            Provide a deep, raw, and highly accurate soul analysis based ONLY on the planetary positions and time cycles.
-            Focus on the "Ascendant" (Rising Sign) and "Weton" interactions.
-            Tell the user their core nature without the bias of their human name.
-            
-            FORMAT:
-            No tables. Just pure, flowing wisdom. 1500 words approx. Gunakan Bahasa Indonesia Seluruhnya
+            INSTRUKSI UTAMA (ANTI-GENERALISASI):
+            1. **DILARANG BASA-BASI.** Jangan gunakan kalimat pembuka klise ("Anda orang yang baik"). Langsung tusuk ke inti karakter.
+            2. **HUKUM KAUSALITAS:** Setiap klaim sifat HARUS diikuti oleh penyebabnya dari data.
+               - SALAH: "Anda orangnya moody." (Ini generalisasi).
+               - BENAR: "Emosi Anda tidak stabil dan menyerap energi sekitar layaknya spons KARENA Bulan Anda di Pisces." (Ini Analisis).
+            3. **GABUNGKAN BARAT & TIMUR:** Jangan baca terpisah. Contoh: "Ketegasan Mars di Leo Anda diredam oleh kelembutan Weton Rabu Pon, menciptakan kepemimpinan yang karismatik tapi pasif-agresif."
+
+            GAYA BAHASA:
+            - Objektif, Dingin, Tajam, Psikologis.
+            - Jangan gunakan tabel. Gunakan paragraf yang mengalir.
+            - Panjang: Sekitar 1000-1500 kata.
             """
 
             response = model.generate_content(prompt)
@@ -297,4 +300,5 @@ def main():
             st.success("Terkirim! Murni Waktu.")
 
 if __name__ == "__main__":
+
     main()
