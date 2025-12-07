@@ -1,0 +1,5 @@
+streamlit
+google-generativeai
+fpdf
+python-dotenv
+ephem
